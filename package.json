@@ -30,5 +30,11 @@
   },
   "devDependencies": {
     "vitest": "^3.0.9"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
 }
