@@ -1,0 +1,34 @@
+{
+  "name": "@vizhub/viz-utils",
+  "version": "0.0.1",
+  "description": "Utility functions for use across VizHub packages.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prettier": "prettier {*.*,**/*.*} --write",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vizhub-core/viz-utils.git"
+  },
+  "keywords": [
+    "Viz"
+  ],
+  "author": "Curran Kelleher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vizhub-core/viz-utils/issues"
+  },
+  "homepage": "https://github.com/vizhub-core/viz-utils#readme",
+  "dependencies": {
+    "@vizhub/viz-types": "^0.0.2"
+  },
+  "devDependencies": {
+    "vitest": "^3.0.9"
+  }
+}
