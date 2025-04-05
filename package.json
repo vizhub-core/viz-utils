@@ -1,6 +1,6 @@
 {
   "name": "@vizhub/viz-utils",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Utility functions for use across VizHub packages.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
