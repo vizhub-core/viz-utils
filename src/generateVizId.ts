@@ -9,6 +9,6 @@ import type { VizId } from "@vizhub/viz-types";
 export const generateVizId = (): VizId =>
   "xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx".replace(/[xy]/g, (c) =>
     ((c === "x" ? Math.random() * 16 : (Math.random() * 4) | 8) | 0).toString(
-      16
-    )
+      16,
+    ),
   );

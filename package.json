@@ -2,15 +2,25 @@
   "name": "@vizhub/viz-utils",
   "version": "0.1.0",
   "description": "Utility functions for use across VizHub packages.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "scripts": {
-    "build": "tsc",
+    "build": "vite build && tsc --emitDeclarationOnly",
     "prettier": "prettier {*.*,**/*.*} --write",
     "prepublishOnly": "npm run build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "upgrade": "ncu -u"
   },
   "repository": {
     "type": "git",
@@ -26,10 +36,13 @@
   },
   "homepage": "https://github.com/vizhub-core/viz-utils#readme",
   "dependencies": {
-    "@vizhub/viz-types": "^0.0.2"
+    "@vizhub/viz-types": "^0.1.0"
   },
   "devDependencies": {
-    "vitest": "^3.0.9"
+    "npm-check-updates": "^17.1.16",
+    "prettier": "^3.5.3",
+    "vite": "^6.2.5",
+    "vitest": "^3.1.1"
   },
   "publishConfig": {
     "access": "public"

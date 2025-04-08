@@ -18,10 +18,7 @@ describe("getFileText", () => {
       },
     };
 
-    const result = getFileText(
-      mockVizContent,
-      "index.html",
-    );
+    const result = getFileText(mockVizContent, "index.html");
 
     expect(result).toBe("<html>Test</html>");
   });
@@ -51,10 +48,7 @@ describe("getFileText", () => {
       id: "test-viz-123",
     } as VizContent;
 
-    const result = getFileText(
-      mockVizContent,
-      "index.html",
-    );
+    const result = getFileText(mockVizContent, "index.html");
 
     expect(result).toBeNull();
   });
@@ -89,10 +83,7 @@ describe("getFileText", () => {
     };
 
     // Should return the first matching file's content
-    const result = getFileText(
-      mockVizContent,
-      "index.html",
-    );
+    const result = getFileText(mockVizContent, "index.html");
 
     expect(result).toBe("<html>First</html>");
   });
