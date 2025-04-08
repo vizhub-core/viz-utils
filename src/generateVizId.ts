@@ -21,6 +21,6 @@ export const generateVizId = (): VizId => {
   bytes[8] = (bytes[8] & 0x3f) | 0x80;
 
   return Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join(
-    ""
+    "",
   ) as VizId;
 };

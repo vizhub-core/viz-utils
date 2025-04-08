@@ -16,9 +16,9 @@ This package depends on `@vizhub/viz-types`, which defines the TypeScript types 
 
 ### ID Generation
 
-#### `generateVizId()`
+#### `generateVizId(): string`
 
-Generates a unique VizId (a UUID v4 string without dashes) for a visualization.
+Generates a unique VizId (a UUID v4 string without dashes) for a visualization. The generated ID is a 32-character hexadecimal string with the 13th character always being "4" (following UUID v4 format).
 
 ```typescript
 import { generateVizId } from "@vizhub/viz-utils";
@@ -26,9 +26,9 @@ import { generateVizId } from "@vizhub/viz-utils";
 const newVizId = generateVizId(); // e.g. "12345678901234567890123456789012"
 ```
 
-#### `generateVizFileId()`
+#### `generateVizFileId(): string`
 
-Generates a unique VizFileId (an 8-character substring of a VizId) for a file within a visualization.
+Generates a unique VizFileId (an 8-character hexadecimal string) for a file within a visualization.
 
 ```typescript
 import { generateVizFileId } from "@vizhub/viz-utils";
@@ -40,7 +40,11 @@ const newFileId = generateVizFileId(); // e.g. "12345678"
 
 #### `isVizId(str: string): boolean`
 
-Checks if a string is a valid VizId.
+Checks if a string is a valid VizId. A valid VizId must:
+
+- Be exactly 32 characters long
+- Contain only hexadecimal characters (0-9, a-f)
+- Have "4" as the 13th character (following UUID v4 format)
 
 ```typescript
 import { isVizId } from "@vizhub/viz-utils";
@@ -54,7 +58,13 @@ isVizId("invalid-id"); // false
 #### `getFileText(content: VizContent, fileName: string): string | null`
 
 Gets the text content of a file with the given name from a VizContent object.
-Returns null if the file is not found.
+Returns null if:
+
+- The file is not found
+- The content is undefined
+- The content has no files property
+
+If multiple files with the same name exist, returns the content of the first matching file.
 
 ```typescript
 import { getFileText } from "@vizhub/viz-utils";
@@ -63,6 +73,26 @@ const htmlContent = getFileText(vizContent, "index.html");
 if (htmlContent) {
   // Use the file content
 }
+```
+
+#### `vizFilesToFileCollection(files?: VizFiles): Record<string, string>`
+
+Converts VizFiles (keyed by file ID) to a simpler file collection format (keyed by filename).
+Returns an empty object if:
+
+- No files are provided
+- The files object is empty
+
+```typescript
+import { vizFilesToFileCollection } from "@vizhub/viz-utils";
+
+const vizFiles = {
+  file1: { name: "index.html", text: "<html>Test</html>" },
+  file2: { name: "script.js", text: 'console.log("Hello");' },
+};
+
+const fileCollection = vizFilesToFileCollection(vizFiles);
+// Result: { "index.html": "<html>Test</html>", "script.js": 'console.log("Hello");' }
 ```
 
 ## Types
