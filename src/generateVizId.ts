@@ -9,7 +9,7 @@ const getCryptoObj = (): Crypto => {
   }
   // Use require instead of import to avoid top-level await
   // This will only run in Node.js environments
-  return (require("node:crypto").webcrypto as Crypto);
+  return require("node:crypto").webcrypto as Crypto;
 };
 
 const cryptoObj = getCryptoObj();
