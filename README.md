@@ -23,7 +23,7 @@ Generates a unique VizId (a UUID v4 string without dashes) for a visualization. 
 ```typescript
 import { generateVizId } from "@vizhub/viz-utils";
 
-const newVizId = generateVizId(); // e.g. "12345678901234567890123456789012"
+const newVizId = generateVizId(); // e.g. "550e8400e29b41d4a716446655440000"
 ```
 
 #### `generateVizFileId(): string`
@@ -33,7 +33,7 @@ Generates a unique VizFileId (an 8-character hexadecimal string) for a file with
 ```typescript
 import { generateVizFileId } from "@vizhub/viz-utils";
 
-const newFileId = generateVizFileId(); // e.g. "12345678"
+const newFileId = generateVizFileId(); // e.g. "550e8400"
 ```
 
 ### Validation
@@ -87,12 +87,35 @@ Returns an empty object if:
 import { vizFilesToFileCollection } from "@vizhub/viz-utils";
 
 const vizFiles = {
-  file1: { name: "index.html", text: "<html>Test</html>" },
-  file2: { name: "script.js", text: 'console.log("Hello");' },
+  "550e8400": { name: "index.html", text: "<html>Test</html>" },
+  e29b41d4: { name: "script.js", text: 'console.log("Hello");' },
 };
 
 const fileCollection = vizFilesToFileCollection(vizFiles);
 // Result: { "index.html": "<html>Test</html>", "script.js": 'console.log("Hello");' }
+```
+
+#### `fileCollectionToVizFiles(files: FileCollection): VizFiles`
+
+Converts a simple file collection (keyed by filename) to VizFiles format (keyed by generated file ID).
+Returns an empty object if:
+
+- No files are provided
+- The files object is empty
+
+```typescript
+import { fileCollectionToVizFiles } from "@vizhub/viz-utils";
+
+const fileCollection = {
+  "index.html": "<html>Test</html>",
+  "script.js": 'console.log("Hello");',
+};
+
+const vizFiles = fileCollectionToVizFiles(fileCollection);
+// Result: {
+//   "550e8400": { name: "index.html", text: "<html>Test</html>" },
+//   "e29b41d4": { name: "script.js", text: 'console.log("Hello");' }
+// }
 ```
 
 ## Types
