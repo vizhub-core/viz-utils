@@ -53,6 +53,30 @@ isVizId("12345678901234567890123456789012"); // true if valid
 isVizId("invalid-id"); // false
 ```
 
+### Time Utilities
+
+#### `dateToTimestamp(date: Date): Timestamp`
+
+Converts a JavaScript Date object to a Unix timestamp (seconds since epoch). The result is floored to remove milliseconds.
+
+```typescript
+import { dateToTimestamp } from "@vizhub/viz-utils";
+
+const date = new Date("2023-01-01T00:00:00.000Z");
+const timestamp = dateToTimestamp(date); // 1672531200
+```
+
+#### `timestampToDate(timestamp: Timestamp): Date`
+
+Converts a Unix timestamp (seconds since epoch) to a JavaScript Date object.
+
+```typescript
+import { timestampToDate } from "@vizhub/viz-utils";
+
+const timestamp = 1672531200;
+const date = timestampToDate(timestamp); // 2023-01-01T00:00:00.000Z
+```
+
 ### File Operations
 
 #### `getFileText(content: VizContent, fileName: string): string | null`
@@ -127,6 +151,7 @@ This package uses the following types from `@vizhub/viz-types`:
 - `VizContent`: The content of a visualization, including its files
 - `VizFile`: A file with a name and text content
 - `VizFiles`: A collection of files, indexed by their VizFileId
+- `Timestamp`: A Unix timestamp representing seconds since epoch
 
 ## License
 
