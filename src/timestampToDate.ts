@@ -1,4 +1,4 @@
-import type { Timestamp } from "@vizhub/viz-types";
+import type { VizTimestamp } from "@vizhub/viz-types";
 
-export const timestampToDate = (timestamp: Timestamp): Date =>
+export const timestampToDate = (timestamp: VizTimestamp): Date =>
   new Date(timestamp * 1000);

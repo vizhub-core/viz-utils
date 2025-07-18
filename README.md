@@ -55,7 +55,7 @@ isVizId("invalid-id"); // false
 
 ### Time Utilities
 
-#### `dateToTimestamp(date: Date): Timestamp`
+#### `dateToTimestamp(date: Date): VizTimestamp`
 
 Converts a JavaScript Date object to a Unix timestamp (seconds since epoch). The result is floored to remove milliseconds.
 
@@ -66,7 +66,7 @@ const date = new Date("2023-01-01T00:00:00.000Z");
 const timestamp = dateToTimestamp(date); // 1672531200
 ```
 
-#### `timestampToDate(timestamp: Timestamp): Date`
+#### `timestampToDate(timestamp: VizTimestamp): Date`
 
 Converts a Unix timestamp (seconds since epoch) to a JavaScript Date object.
 
@@ -151,7 +151,7 @@ This package uses the following types from `@vizhub/viz-types`:
 - `VizContent`: The content of a visualization, including its files
 - `VizFile`: A file with a name and text content
 - `VizFiles`: A collection of files, indexed by their VizFileId
-- `Timestamp`: A Unix timestamp representing seconds since epoch
+- `VizTimestamp`: A Unix timestamp representing seconds since epoch
 
 ## License
 
