@@ -36,6 +36,16 @@ import { generateVizFileId } from "@vizhub/viz-utils";
 const newFileId = generateVizFileId(); // e.g. "550e8400"
 ```
 
+#### `generateRunId(): string`
+
+Generates a unique RunId (an 8-character hexadecimal string) for a run within a visualization, for use as the `vizContent.runId` property.
+
+```typescript
+import { generateRunId } from "@vizhub/viz-utils";
+
+const newRunId = generateRunId(); // e.g. "550e8400"
+```
+
 ### Validation
 
 #### `isVizId(str: string): boolean`
