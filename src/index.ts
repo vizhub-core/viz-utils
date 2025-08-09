@@ -2,6 +2,7 @@ export { isVizId } from "./isVizId";
 export { generateVizId } from "./generateVizId";
 export { generateVizFileId } from "./generateVizFileId";
 export { generateRunId } from "./generateRunId";
+export { getFileId } from "./getFileId";
 export { getFileText } from "./getFileText";
 export { vizFilesToFileCollection } from "./vizFilesToFileCollection";
 export { fileCollectionToVizFiles } from "./fileCollectionToVizFiles";
