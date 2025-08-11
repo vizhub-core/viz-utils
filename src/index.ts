@@ -1,4 +1,5 @@
 export { isVizId } from "./isVizId";
+export { isImageFileName } from "./isImageFileName";
 export { generateVizId } from "./generateVizId";
 export { generateVizFileId } from "./generateVizFileId";
 export { generateRunId } from "./generateRunId";
