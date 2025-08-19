@@ -68,9 +68,11 @@ isVizId("invalid-id"); // false
 Checks if a file name has an image file extension. Returns `true` if the file name has a supported image extension, `false` otherwise.
 
 Supported image extensions:
+
 - png, jpg, jpeg, gif, bmp, svg, webp (case-insensitive)
 
 Returns `false` if:
+
 - The fileName is not a string
 - The fileName is empty or only whitespace
 - The fileName doesn't have a valid image extension
@@ -138,7 +140,7 @@ Gets the file ID of a file with the given name from a VizContent object.
 Returns null if:
 
 - The file is not found
-- The content is undefined  
+- The content is undefined
 - The content has no files property
 
 If multiple files with the same name exist, returns the ID of the first matching file.

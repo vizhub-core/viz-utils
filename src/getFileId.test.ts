@@ -54,10 +54,7 @@ describe("getFileId", () => {
   });
 
   it("should return null when content is undefined", () => {
-    const result = getFileId(
-      undefined as unknown as VizContent,
-      "index.html",
-    );
+    const result = getFileId(undefined as unknown as VizContent, "index.html");
 
     expect(result).toBeNull();
   });
