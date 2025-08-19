@@ -63,6 +63,29 @@ isVizId("12345678901234567890123456789012"); // true if valid
 isVizId("invalid-id"); // false
 ```
 
+#### `isImageFileName(fileName: string): boolean`
+
+Checks if a file name has an image file extension. Returns `true` if the file name has a supported image extension, `false` otherwise.
+
+Supported image extensions:
+- png, jpg, jpeg, gif, bmp, svg, webp (case-insensitive)
+
+Returns `false` if:
+- The fileName is not a string
+- The fileName is empty or only whitespace
+- The fileName doesn't have a valid image extension
+- The fileName doesn't have at least one character before the extension
+
+```typescript
+import { isImageFileName } from "@vizhub/viz-utils";
+
+isImageFileName("photo.png"); // true
+isImageFileName("image.JPG"); // true (case-insensitive)
+isImageFileName("data.csv"); // false
+isImageFileName(""); // false
+isImageFileName(".png"); // false (no filename before extension)
+```
+
 ### Time Utilities
 
 #### `dateToTimestamp(date: Date): VizTimestamp`
@@ -106,6 +129,27 @@ import { getFileText } from "@vizhub/viz-utils";
 const htmlContent = getFileText(vizContent, "index.html");
 if (htmlContent) {
   // Use the file content
+}
+```
+
+#### `getFileId(content: VizContent, fileName: string): VizFileId | null`
+
+Gets the file ID of a file with the given name from a VizContent object.
+Returns null if:
+
+- The file is not found
+- The content is undefined  
+- The content has no files property
+
+If multiple files with the same name exist, returns the ID of the first matching file.
+
+```typescript
+import { getFileId } from "@vizhub/viz-utils";
+
+const fileId = getFileId(vizContent, "index.html");
+if (fileId) {
+  // Use the file ID to reference the file
+  console.log(`File ID: ${fileId}`); // e.g. "File ID: 550e8400"
 }
 ```
 
