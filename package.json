@@ -36,15 +36,15 @@
   },
   "homepage": "https://github.com/vizhub-core/viz-utils#readme",
   "dependencies": {
-    "@vizhub/viz-types": "^0.4.0"
+    "@vizhub/viz-types": "^0.5.0"
   },
   "devDependencies": {
-    "@types/node": "^24.3.0",
-    "npm-check-updates": "^18.0.2",
-    "prettier": "^3.6.2",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.2",
-    "vitest": "^3.2.4"
+    "@types/node": "^25.0.3",
+    "npm-check-updates": "^19.2.1",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0",
+    "vitest": "^4.0.16"
   },
   "publishConfig": {
     "access": "public"
