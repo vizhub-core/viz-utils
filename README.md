@@ -198,6 +198,37 @@ const vizFiles = fileCollectionToVizFiles(fileCollection);
 // }
 ```
 
+#### `setFileText(content: VizContent, fileName: string, fileText: string): VizContent`
+
+Sets the text content of a file using an immutable update pattern. If a file with the given fileName already exists, its text is updated while preserving its file ID. If no file with the given fileName exists, a new file is created with a generated file ID.
+
+Uses immutable updates, so the original content object is never modified.
+
+Throws an error if:
+
+- `content` is null or undefined
+- `fileName` is empty or not a string
+- `fileText` is empty or not a string
+
+```typescript
+import { setFileText } from "@vizhub/viz-utils";
+
+const vizContent = {
+  id: "my-viz-123",
+  files: {
+    f1: { name: "index.html", text: "<html>Old</html>" },
+  },
+};
+
+// Update existing file - preserves file ID
+const updated = setFileText(vizContent, "index.html", "<html>New</html>");
+// Result: Original unchanged, new object has updated content
+
+// Add new file - generates new file ID
+const withNewFile = setFileText(updated, "style.css", "body { color: red; }");
+// Result: Original unchanged, new object has both files
+```
+
 ## Types
 
 This package uses the following types from `@vizhub/viz-types`:
