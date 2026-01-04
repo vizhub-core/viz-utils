@@ -5,6 +5,7 @@ export { generateVizFileId } from "./generateVizFileId";
 export { generateRunId } from "./generateRunId";
 export { getFileId } from "./getFileId";
 export { getFileText } from "./getFileText";
+export { setFileText } from "./setFileText";
 export { vizFilesToFileCollection } from "./vizFilesToFileCollection";
 export { fileCollectionToVizFiles } from "./fileCollectionToVizFiles";
 export { dateToTimestamp } from "./dateToTimestamp";
